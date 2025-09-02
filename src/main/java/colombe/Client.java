@@ -53,5 +53,17 @@ public class Client {
         return commandes.stream().filter(c -> c.getDateDeCreation().isAfter(instant1) && c.getDateDeCreation().isBefore(instant2)).toList();
     }
 
+    public List<Commande> getCommandeBetweenFirstInstant(Instant firstInstant){
+        return commandes.stream().filter(c -> c.getDateDeCreation().isAfter(firstInstant)).toList();
+    }
+    public List<Commande> getCommandeBetweenLastInstant(Instant lastInstant){
+        return commandes.stream().filter(c -> c.getDateDeCreation().isBefore(lastInstant)).toList();
+    }
+
+    public List<Commande> getCommandeBetweenTwoInstants(){
+        return commandes;
+    }
+
+
 
 }

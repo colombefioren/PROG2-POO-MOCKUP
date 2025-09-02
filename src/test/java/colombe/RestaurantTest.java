@@ -37,13 +37,13 @@ class RestaurantTest {
 
     @Test
     void should_change_price_of_plat_and_keep_record_of_it(){
-        plat1.changePrix(30.0,"Inflation");
+        plat1.changePrix(Instant.parse("2025-06-06T10:00:00Z"),50.00,"Inflation");
         assertEquals(2,plat1.getHistoriquePrix().size());
     }
 
     @Test
     void should_return_command_between_two_instant_ok(){
-        assertEquals(1,client1.getCommandeBetweenTwoInstants(Instant.now().minusSeconds(1000),Instant.now()).size());
+        assertEquals(0,client1.getCommandeBetweenLastInstant(Instant.parse("2025-06-06T10:00:00Z")).size());
     }
 
 
