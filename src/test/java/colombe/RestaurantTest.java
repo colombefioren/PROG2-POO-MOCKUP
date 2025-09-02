@@ -13,8 +13,6 @@ class RestaurantTest {
     Plat plat2;
     Commande commande1;
     Client client1;
-    Client client2;
-    CommandeEnLigne commandeEnLigne1;
 
 
     @BeforeEach
@@ -39,9 +37,13 @@ class RestaurantTest {
 
     @Test
     void should_change_price_of_plat_and_keep_record_of_it(){
-        System.out.println(plat1.showHistoriquePrix());
-        plat1.changePrix(15.00,"Inflation");
+        plat1.changePrix(30.0,"Inflation");
         assertEquals(2,plat1.getHistoriquePrix().size());
+    }
+
+    @Test
+    void should_return_command_between_two_instant_ok(){
+        assertEquals(1,client1.getCommandeBetweenTwoInstants(Instant.now().minusSeconds(1000),Instant.now()).size());
     }
 
 

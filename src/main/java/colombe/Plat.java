@@ -7,14 +7,13 @@ public class Plat {
 
     private final int id;
     private final String nom;
-    private final HashMap<Instant,ChangePriceForm> historiquePrix;
+    private final HashMap<Instant,ChangePriceForm> historiquePrix = new HashMap<>();
 
 
     public Plat(int id, String nom,double prix) {
         this.id = id;
         this.nom = nom;
-        this.historiquePrix = new HashMap<>();
-        this.historiquePrix.put(Instant.now(),new ChangePriceForm("Not defined",prix));
+        historiquePrix.put(Instant.now(),new ChangePriceForm("Not defined",prix));
     }
 
 
@@ -52,4 +51,5 @@ public class Plat {
         }
         return historique.toString();
     }
+
 }
